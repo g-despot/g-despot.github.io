@@ -4,7 +4,7 @@ sidebar_label: 2022-2024 Ericsson
 ---
 
 # Ericsson
-### Software Developer: October 2022 - Present
+### Software Developer: October 2022 - December 2024
 
 As part of a cross-functional team, I am engaged in the software development process of Ericsson’s flagship products throughout multiple systems and components. My responsibilities include:
 - **Delivering new software functionalities** by collaborating with multiple stakeholders, analyzing proposed solutions and studying legacy systems.

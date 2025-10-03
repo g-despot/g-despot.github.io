@@ -787,3 +787,8 @@ html[data-theme="dark"] .Section p a {
     grid-template-areas: "first" "last";
   }
 }
+
+/* Reduce top padding on the main content area to bring it closer to the navbar */
+.container_src-pages-Home-components-Section-styles-module {
+    padding: 2rem !important;
+}
