@@ -1,73 +1,93 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
+const siteUrl = 'https://g-despot.github.io';
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/paper.png',
+  title: 'Ivan Despot',
+  tagline:
+    'Developer experience engineer writing about vector search, AI application engineering, DevRel, and data infrastructure.',
+  favicon: 'img/favicon.png',
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/resume/',
+  url: siteUrl,
+  baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'g-despot', // Usually your GitHub org/user name.
-  projectName: 'resume', // Usually your repo name.
+  // GitHub Pages deployment (user site served at the root domain).
+  organizationName: 'g-despot',
+  projectName: 'g-despot.github.io',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
   plugins: [
-    'docusaurus-plugin-sass',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        // The old site lived under a `/resume/` base path with the résumé split
+        // across many docs pages. Send all of those to the new single résumé page.
+        redirects: [
+          {
+            to: '/resume',
+            from: [
+              '/resume/docs/intro',
+              '/resume/docs/attribution',
+              '/resume/docs/resume/weaviate',
+              '/resume/docs/resume/ericsson',
+              '/resume/docs/resume/memgraph',
+              '/resume/docs/resume/best-zagreb',
+              '/resume/docs/resume/infodom',
+              '/resume/docs/experience/software-development',
+              '/resume/docs/experience/technical-writing',
+              '/resume/docs/experience/community-building',
+              '/resume/docs/experience/marketing-analytics',
+              '/resume/docs/experience/project-management',
+            ],
+          },
+        ],
+      },
+    ],
   ],
+
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-        },
+        // No docs instance — the resume is a single custom page.
+        docs: false,
+        // The blog is the homepage, served at the site root.
         blog: {
+          routeBasePath: '/',
+          blogTitle: 'Ivan Despot — Blog',
+          blogDescription:
+            'Notes on vector search & RAG, AI application engineering, developer relations, and data infrastructure.',
+          blogSidebarTitle: 'Recent posts',
+          blogSidebarCount: 10,
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
+            title: 'Ivan Despot — Blog',
+            description:
+              'Notes on vector search & RAG, AI application engineering, developer relations, and data infrastructure.',
+            copyright: `Copyright © ${new Date().getFullYear()} Ivan Despot.`,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: [
-            require.resolve('./src/css/customTheme.scss'),
-            require.resolve('./src/css/index.scss'),
-            require.resolve('./src/css/showcase.scss'),
-            require.resolve('./src/css/versions.scss'),
-          ],
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
@@ -76,26 +96,27 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/paper.png',
-      navbar: {
-        title: 'Homepage',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/paper.png',
+      image: 'img/social-card.png',
+      metadata: [
+        {
+          name: 'keywords',
+          content:
+            'Ivan Despot, developer experience, vector search, RAG, AI engineering, developer relations, Weaviate',
         },
-        style: 'dark',
+      ],
+      navbar: {
+        title: 'Ivan Despot',
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Resume & Experience',
-          },
-          //{to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/', label: 'Blog', position: 'left'},
+          {to: '/resume', label: 'Resume', position: 'left'},
           {
             href: 'https://github.com/g-despot',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://www.linkedin.com/in/ivan-g-despot/',
+            label: 'LinkedIn',
             position: 'right',
           },
         ],
@@ -104,73 +125,41 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Portfolio',
+            title: 'Explore',
             items: [
-              {
-                label: 'Intro',
-                to: '/docs/intro',
-              },
-              {
-                label: 'Resume',
-                to: '/docs/resume/ericsson',
-              },
-              {
-                label: 'Experience & Skills',
-                to: '/docs/experience/software-development',
-              },
+              {label: 'Blog', to: '/'},
+              {label: 'Resume', to: '/resume'},
             ],
           },
           {
-            title: 'Social channels',
+            title: 'Elsewhere',
             items: [
+              {label: 'GitHub', href: 'https://github.com/g-despot'},
               {
-                label: 'Medium',
-                href: 'https://gdespot.medium.com/',
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/ivan-g-despot/',
               },
-              {
-                label: 'Twitter',
-                href: 'https://x.com/ivan_g_despot',
-              },
+              {label: 'X', href: 'https://x.com/ivan_g_despot'},
+              {label: 'Medium', href: 'https://gdespot.medium.com/'},
               {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/users/14674424/ivan-despot',
               },
             ],
           },
-          {
-            title: 'Other channels',
-            items: [
-              //{
-              //  label: 'Blog',
-              //  to: '/blog',
-              //},
-              {
-                label: 'GitHub',
-                href: 'https://github.com/g-despot',
-              },
-              {
-                label: 'LinkedIn',
-                href: 'https://www.linkedin.com/in/ivan-g-despot/',
-              },
-            ],
-          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Ivan Despot`,
+        copyright: `Copyright © ${new Date().getFullYear()} Ivan Despot. Built with Docusaurus.`,
       },
       prism: {
-        defaultLanguage: 'jsx',
-        theme: require('./core/PrismTheme'),
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         additionalLanguages: [
-          'diff',
           'bash',
           'json',
           'java',
-          'kotlin',
-          'objectivec',
-          'swift',
-          'groovy',
-          'ruby',
-          'flow',
+          'python',
+          'go',
+          'csharp',
         ],
       },
     }),

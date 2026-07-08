@@ -1,19 +1,31 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+# Content pillars
+vector-search:
+  label: Vector Search & RAG
+  permalink: /vector-search
+  description: Vector databases, retrieval, embeddings, and RAG architectures.
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+ai-engineering:
+  label: AI Engineering
+  permalink: /ai-engineering
+  description: Building with LLMs, agents, MCP, evals, and practical AI application patterns.
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+devrel:
+  label: DevRel
+  permalink: /devrel
+  description: Developer relations, community, and developer advocacy.
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+technical-writing:
+  label: Technical Writing
+  permalink: /technical-writing
+  description: Documentation, docs-as-code, and the craft of technical communication.
+
+data-engineering:
+  label: Graph & Data Engineering
+  permalink: /data-engineering
+  description: Graph databases, data modeling, and pipelines.
+
+# Supporting tags
+career:
+  label: Career
+  permalink: /career
+  description: Notes on working in developer tooling and infrastructure.

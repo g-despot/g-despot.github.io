@@ -1,41 +1,35 @@
-# Website
+# g-despot.github.io
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Personal site of Ivan Despot — a blog (homepage) plus a single resume page,
+built with [Docusaurus](https://docusaurus.io/).
 
-### Installation
+## Structure
 
-```
-$ yarn
-```
+| Path | What it is | Source |
+| --- | --- | --- |
+| `/` | Blog homepage | `blog/*.md` |
+| `/resume` | Single resume page | `src/pages/resume/` |
+| `/tags` | Content-pillar tag pages | `blog/tags.yml` |
+| `_archive/` | Old detailed docs, kept out of the build | — |
 
-### Local Development
+## Develop
 
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+npm install
+npm start          # dev server with live reload
+npm run build      # production build into ./build
+npm run serve      # preview the production build locally
 ```
 
-Not using SSH:
+## Write a post
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+Add a Markdown file to `blog/` — see [`blog/_README.md`](blog/_README.md) for the
+front-matter conventions and the canonical-repost pattern.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Deploy
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site
+and publishes it to GitHub Pages.
+
+> **One-time setup:** in the repo's **Settings → Pages**, set **Source** to
+> **GitHub Actions**.
