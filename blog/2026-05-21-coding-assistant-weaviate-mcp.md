@@ -8,10 +8,6 @@ description: Using Weaviate's built-in MCP server to do retrieval-augmented gene
 
 import Head from '@docusaurus/Head';
 
-<Head>
-  <link rel="canonical" href="https://weaviate.io/blog/coding-assistant-weaviate-mcp" />
-</Head>
-
 :::note Originally published on the Weaviate blog
 [Read the original on Weaviate →](https://weaviate.io/blog/coding-assistant-weaviate-mcp)
 :::
@@ -19,6 +15,10 @@ import Head from '@docusaurus/Head';
 A coding assistant is only as good as the context you can feed it. This walkthrough builds one that retrieves over your own code and documentation using Weaviate's built-in MCP server.
 
 <!-- truncate -->
+
+<Head>
+  <link rel="canonical" href="https://weaviate.io/blog/coding-assistant-weaviate-mcp" />
+</Head>
 
 It covers the pieces that make retrieval over a codebase actually work:
 

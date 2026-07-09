@@ -4,17 +4,37 @@
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
+.introTop {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--ifm-color-emphasis-200);
+}
+
+.introHead {
+  min-width: 0;
+}
+
 .hi {
   font-size: 1rem;
   color: var(--ifm-color-emphasis-600);
-  margin: 0 0 0.15rem;
+  margin: 0 0 0.1rem;
 }
 
 .name {
   font-size: 2.6rem;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.02em;
-  margin: 0 0 0.75rem;
+  margin: 0;
 }
 
 .lede {
@@ -34,7 +54,7 @@
 
 .link {
   display: inline-block;
-  padding: 0.4rem 1rem;
+  padding: 0.45rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--ifm-color-emphasis-300);
   color: var(--ifm-color-emphasis-800);
@@ -53,13 +73,13 @@
 .linkPrimary {
   background: var(--ifm-color-primary);
   border-color: var(--ifm-color-primary);
-  color: #fff;
+  color: var(--brand-on-primary);
 }
 
 .linkPrimary:hover {
   background: var(--ifm-color-primary-dark);
   border-color: var(--ifm-color-primary-dark);
-  color: #fff;
+  color: var(--brand-on-primary);
 }
 
 /* Topic filter */
@@ -90,7 +110,7 @@
 .chip {
   display: inline-block;
   font-size: 0.85rem;
-  padding: 0.25rem 0.7rem;
+  padding: 0.42rem 0.8rem;
   border-radius: 999px;
   background: var(--ifm-color-emphasis-100);
   border: 1px solid var(--ifm-color-emphasis-200);
@@ -103,7 +123,20 @@
   text-decoration: none;
   background: var(--ifm-color-primary);
   border-color: var(--ifm-color-primary);
-  color: #fff;
+  color: var(--brand-on-primary);
+}
+
+.chipAll {
+  background: transparent;
+  border-style: dashed;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.chipAll:hover {
+  background: transparent;
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-dark);
 }
 
 @media (max-width: 640px) {
@@ -112,5 +145,9 @@
   }
   .lede {
     font-size: 1rem;
+  }
+  .avatar {
+    width: 66px;
+    height: 66px;
   }
 }

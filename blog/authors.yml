@@ -8,3 +8,29 @@ ivan:
     github: g-despot
     linkedin: ivan-g-despot
     x: ivan_g_despot
+
+# Co-authors on canonical reposts — details, images, and links from the
+# Weaviate team page (weaviate-io/authors.yml).
+dirk:
+  name: Dirk Kulawiak
+  title: Core Engineer, Weaviate
+  url: https://github.com/dirkkul
+  image_url: https://weaviate.io/img/people/icon/dirk.jpg
+  socials:
+    github: dirkkul
+
+andre:
+  name: André Mourão
+  title: Core Engineer, Weaviate
+  url: https://github.com/amourao
+  image_url: https://weaviate.io/img/people/icon/amourao.jpg
+  socials:
+    github: amourao
+
+tommy:
+  name: Tommy Smith
+  title: Polyglot Engineer, Weaviate
+  url: https://github.com/tsmith023
+  image_url: https://weaviate.io/img/people/icon/tommy.jpg
+  socials:
+    github: tsmith023

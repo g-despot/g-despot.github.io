@@ -1,6 +1,9 @@
 /**
- * Swizzled from @docusaurus/theme-classic to add a homepage intro/bio and a
- * "browse by topic" tag filter above the post list (page 1 only).
+ * Swizzled (ejected) from @docusaurus/theme-classic. Adds a homepage intro/bio
+ * and a "browse by topic" tag filter above the post list (page 1 only).
+ * NOTE: this is an ejected copy of the upstream component — after a Docusaurus
+ * upgrade, re-diff it against the installed @docusaurus/theme-classic version to
+ * catch metadata / structured-data changes.
  */
 import React from 'react';
 import clsx from 'clsx';
@@ -30,13 +33,24 @@ const PILLARS = [
 function HomeIntro() {
   return (
     <header className={styles.intro}>
-      <p className={styles.hi}>Hi, I’m</p>
-      <h1 className={styles.name}>Ivan Despot</h1>
+      <div className={styles.introTop}>
+        <img
+          className={styles.avatar}
+          src="https://github.com/g-despot.png"
+          alt="Ivan Despot"
+          width="84"
+          height="84"
+        />
+        <div className={styles.introHead}>
+          <p className={styles.hi}>Hi, I’m</p>
+          <h1 className={styles.name}>Ivan Despot</h1>
+        </div>
+      </div>
       <p className={styles.lede}>
-        Developer Experience Engineer at Weaviate. I write about vector search
-        &amp; RAG, AI application engineering, developer relations, and data
-        infrastructure — usually the parts that make a product easy (or hard) to
-        adopt.
+        Developer Experience &amp; DevRel Engineer at Weaviate. I write about
+        vector search &amp; RAG, AI application engineering, developer relations,
+        and technical writing — usually the parts that make a product easy (or
+        hard) to adopt.
       </p>
       <div className={styles.links}>
         <Link className={clsx(styles.link, styles.linkPrimary)} to="/resume">
@@ -62,6 +76,11 @@ function HomeIntro() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link className={clsx(styles.chip, styles.chipAll)} to="/tags">
+              All topics →
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
@@ -75,10 +94,17 @@ function BlogListPageMetadata(props) {
   } = useDocusaurusContext();
   const {blogDescription, blogTitle, permalink} = metadata;
   const isBlogOnlyMode = permalink === '/';
-  const title = isBlogOnlyMode ? siteTitle : blogTitle;
+  // PageMetadata appends "| {siteTitle}", so a role-first homepage title avoids
+  // the stuttered "Ivan Despot | Ivan Despot".
+  const title = isBlogOnlyMode
+    ? 'Developer Experience & DevRel Engineer'
+    : blogTitle;
+  const description = isBlogOnlyMode
+    ? 'Ivan Despot — developer experience & DevRel engineer. Notes on vector search & RAG, AI application engineering, developer relations, and technical writing.'
+    : blogDescription;
   return (
     <>
-      <PageMetadata title={title} description={blogDescription} />
+      <PageMetadata title={title} description={description} />
       <SearchMetadata tag="blog_posts_list" />
     </>
   );

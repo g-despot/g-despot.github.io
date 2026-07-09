@@ -2,7 +2,7 @@
 slug: visualizing-a-social-network
 title: "How to visualize a social network in Python with a graph database"
 authors: [ivan]
-tags: [data-engineering, career]
+tags: [data-engineering]
 description: A walkthrough of building a social-network visualization with a graph database, Flask, Docker, and D3.js. Originally published on Towards Data Science.
 # --- Canonical repost ---
 # This post was first published elsewhere. The canonical tag below tells search
@@ -11,13 +11,6 @@ description: A walkthrough of building a social-network visualization with a gra
 
 import Head from '@docusaurus/Head';
 
-<Head>
-  <link
-    rel="canonical"
-    href="https://towardsdatascience.com/how-to-visualize-a-social-network-in-python-with-a-graph-database-flask-docker-d3-js-af451db57330"
-  />
-</Head>
-
 :::note Originally published on Towards Data Science
 This is a repost. [Read the original article →](https://towardsdatascience.com/how-to-visualize-a-social-network-in-python-with-a-graph-database-flask-docker-d3-js-af451db57330)
 :::
@@ -25,6 +18,13 @@ This is a repost. [Read the original article →](https://towardsdatascience.com
 Social networks are a natural fit for graph data: people are nodes, relationships are edges, and the questions you actually care about — who's central, which communities form, how information spreads — are questions about *structure*.
 
 <!-- truncate -->
+
+<Head>
+  <link
+    rel="canonical"
+    href="https://towardsdatascience.com/how-to-visualize-a-social-network-in-python-with-a-graph-database-flask-docker-d3-js-af451db57330"
+  />
+</Head>
 
 This walkthrough builds an end-to-end app for exploring one:
 

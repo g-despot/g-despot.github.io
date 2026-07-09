@@ -23,9 +23,3 @@ data-engineering:
   label: Graph & Data Engineering
   permalink: /data-engineering
   description: Graph databases, data modeling, and pipelines.
-
-# Supporting tags
-career:
-  label: Career
-  permalink: /career
-  description: Notes on working in developer tooling and infrastructure.

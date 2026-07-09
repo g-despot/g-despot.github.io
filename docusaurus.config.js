@@ -10,7 +10,7 @@ const config = {
   title: 'Ivan Despot',
   tagline:
     'Developer experience engineer writing about vector search, AI application engineering, DevRel, and data infrastructure.',
-  favicon: 'img/favicon.png',
+  favicon: 'img/favicon.svg',
 
   url: siteUrl,
   baseUrl: '/',
@@ -22,12 +22,81 @@ const config = {
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenAnchors: 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preload',
+        href: '/fonts/manrope-variable.woff2',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {rel: 'icon', type: 'image/svg+xml', href: '/img/favicon.svg'},
+    },
+    {
+      tagName: 'link',
+      attributes: {rel: 'apple-touch-icon', href: '/img/apple-touch-icon.png'},
+    },
+    {
+      tagName: 'script',
+      attributes: {type: 'application/ld+json'},
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'WebSite',
+            '@id': `${siteUrl}/#website`,
+            url: `${siteUrl}/`,
+            name: 'Ivan Despot',
+            description:
+              'Blog and resume of Ivan Despot — developer experience & DevRel engineer.',
+            publisher: {'@id': `${siteUrl}/#person`},
+            inLanguage: 'en',
+          },
+          {
+            '@type': 'Person',
+            '@id': `${siteUrl}/#person`,
+            name: 'Ivan Despot',
+            url: `${siteUrl}/`,
+            image: `${siteUrl}/img/social-card.png`,
+            jobTitle: 'Developer Experience Engineer',
+            worksFor: {'@type': 'Organization', name: 'Weaviate'},
+            knowsAbout: [
+              'Developer Experience',
+              'Developer Relations',
+              'Technical Writing',
+              'Vector Search',
+              'Retrieval-Augmented Generation',
+              'Model Context Protocol',
+            ],
+            sameAs: [
+              'https://github.com/g-despot',
+              'https://www.linkedin.com/in/ivan-g-despot/',
+              'https://x.com/ivan_g_despot',
+              'https://gdespot.medium.com/',
+              'https://stackoverflow.com/users/14674424/ivan-despot',
+            ],
+          },
+        ],
+      }),
+    },
+  ],
 
   plugins: [
     [
@@ -89,6 +158,20 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.map((item) =>
+              item.url === `${siteUrl}/` || item.url === `${siteUrl}/resume`
+                ? {...item, priority: 1.0, changefreq: 'monthly'}
+                : item,
+            );
+          },
+        },
       }),
     ],
   ],
@@ -101,8 +184,11 @@ const config = {
         {
           name: 'keywords',
           content:
-            'Ivan Despot, developer experience, vector search, RAG, AI engineering, developer relations, Weaviate',
+            'Ivan Despot, developer experience engineer, developer relations, technical writer, solutions engineer, vector search, RAG, AI engineering, MCP, Weaviate',
         },
+        {name: 'twitter:card', content: 'summary_large_image'},
+        {name: 'twitter:creator', content: '@ivan_g_despot'},
+        {name: 'twitter:site', content: '@ivan_g_despot'},
       ],
       navbar: {
         title: 'Ivan Despot',

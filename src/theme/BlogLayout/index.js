@@ -1,7 +1,9 @@
 /**
- * Swizzled from @docusaurus/theme-classic.
+ * Swizzled (ejected) from @docusaurus/theme-classic.
  * Moves the "Recent posts" sidebar to a right-hand column, stacked above the
- * article's table of contents, so the article gets a wider left column.
+ * article's table of contents, so the article gets a wider left column. On
+ * narrow screens the right rail is hidden and the TOC renders inline (mobileToc).
+ * NOTE: ejected copy — re-diff against the installed theme-classic after upgrades.
  */
 import React from 'react';
 import clsx from 'clsx';
@@ -23,6 +25,7 @@ export default function BlogLayout(props) {
               'col--8': hasAside,
               'col--8 col--offset-2': !hasAside,
             })}>
+            {toc && <div className={styles.mobileToc}>{toc}</div>}
             {children}
           </main>
           {hasAside && (

@@ -1,24 +1,24 @@
 ---
 slug: weaviate-authn-authz
 title: "Weaviate authentication & authorization: a complete security guide"
-authors: [ivan]
+authors: [ivan, dirk]
 tags: [vector-search]
 description: The difference between proving who you are and controlling what you can do — API keys, OIDC, and role-based access control in Weaviate. Originally published on Weaviate.
 ---
 
 import Head from '@docusaurus/Head';
 
-<Head>
-  <link rel="canonical" href="https://weaviate.io/blog/weaviate-security-authn-authz" />
-</Head>
-
 :::note Originally published on the Weaviate blog
-Co-authored with Dirk Kulawiak. [Read the original on Weaviate →](https://weaviate.io/blog/weaviate-security-authn-authz)
+[Read the original on Weaviate →](https://weaviate.io/blog/weaviate-security-authn-authz)
 :::
 
 Authentication and authorization get lumped together, but they answer different questions: *who are you?* and *what are you allowed to do?* Getting the second one right is what keeps a shared database from becoming a liability.
 
 <!-- truncate -->
+
+<Head>
+  <link rel="canonical" href="https://weaviate.io/blog/weaviate-security-authn-authz" />
+</Head>
 
 The guide walks through both sides in Weaviate:
 

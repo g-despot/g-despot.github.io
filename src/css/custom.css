@@ -3,6 +3,14 @@
  * Page-specific styling lives in CSS modules (e.g. the resume page).
  */
 
+@font-face {
+  font-family: 'Manrope Variable';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-variable.woff2') format('woff2-variations');
+}
+
 :root {
   --ifm-color-primary: #4f46e5;
   --ifm-color-primary-dark: #372ee0;
@@ -12,8 +20,13 @@
   --ifm-color-primary-lighter: #6f68eb;
   --ifm-color-primary-lightest: #928cf0;
 
+  /* Foreground for text/icons sitting ON a filled primary surface. */
+  --brand-on-primary: #ffffff;
+
   --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto,
     Helvetica, Arial, sans-serif;
+  --ifm-heading-font-family: 'Manrope Variable', system-ui, -apple-system,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --ifm-code-font-size: 90%;
   --ifm-heading-font-weight: 650;
 
@@ -29,6 +42,9 @@
   --ifm-color-primary-lighter: #b5b1f6;
   --ifm-color-primary-lightest: #dedcfb;
 
+  /* White on the lighter dark-mode indigo is only 3.13:1 (fails AA); use dark. */
+  --brand-on-primary: #16161a;
+
   --ifm-background-color: #16161a;
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
 }
@@ -41,4 +57,38 @@
 /* Comfortable max width for blog reading. */
 .container {
   --ifm-container-width-xl: 1140px;
+}
+
+/* Visible keyboard focus for custom interactive elements. */
+a:focus-visible,
+button:focus-visible,
+.navbar__link:focus-visible,
+.clean-btn:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print: strip site chrome so the résumé (and posts) save cleanly to PDF. */
+@media print {
+  .navbar,
+  .footer,
+  .theme-back-to-top-button,
+  [class*='tableOfContents_'] {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
 }

@@ -1,0 +1,26 @@
+# Ivan Despot
+
+> Developer Experience Engineer at Weaviate. I make products easy to adopt from day one — client SDKs across multiple languages, the docs and tooling developers actually use, and the feedback loop between developers and engineering. I write about vector search & RAG, AI application engineering, developer relations, and technical writing.
+
+Ivan Despot is a developer experience engineer with 6+ years across developer relations and engineering at open-source data and AI infrastructure companies (Weaviate, Ericsson, Memgraph). He works hands-on across the agent stack (RAG, agentic tooling, MCP) and maintains client libraries, documentation platforms, and automated docs-testing tooling. This site is his blog and resume.
+
+## Resume
+- [Resume](https://g-despot.github.io/resume): Full career history (Weaviate, Ericsson, Memgraph), skills, education, and languages.
+
+## Blog — original writing
+- [Documentation-driven development](https://g-despot.github.io/documentation-driven-development): Writing the documentation before the feature ships, using docs as a design tool and testing every example against each release.
+
+## Blog — canonical reposts (originals linked)
+- [Import & vectorize data with Weaviate at scale](https://g-despot.github.io/import-vectorize-data-at-scale): Server-side batching, deterministic UUIDs, and multimodal ingestion for large-scale vector database imports.
+- [Build a coding assistant with Weaviate MCP](https://g-despot.github.io/coding-assistant-weaviate-mcp): RAG over code and docs via Weaviate's built-in MCP server, wired into Claude Code, Cursor, and VS Code.
+- [Text analysis for hybrid search](https://g-despot.github.io/tokenization-text-analysis): Tokenization, stopwords, and accent folding for BM25 keyword scoring in hybrid search.
+- [Securing enterprise AI with Weaviate](https://g-despot.github.io/securing-enterprise-ai): OIDC, role-based access control, multi-tenant isolation, and audit logging for a compliance-ready vector database.
+- [Weaviate authentication & authorization](https://g-despot.github.io/weaviate-authn-authz): Authentication vs. authorization — API keys, OIDC, and RBAC in Weaviate.
+- [How to visualize a social network in Python](https://g-despot.github.io/visualizing-a-social-network): Building an interactive social-network visualization with a graph database, Flask, Docker, and D3.js.
+
+## Elsewhere
+- [GitHub](https://github.com/g-despot)
+- [LinkedIn](https://www.linkedin.com/in/ivan-g-despot/)
+- [X](https://x.com/ivan_g_despot)
+- [Medium](https://gdespot.medium.com/)
+- [Stack Overflow](https://stackoverflow.com/users/14674424/ivan-despot)

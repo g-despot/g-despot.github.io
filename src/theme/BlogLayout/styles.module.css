@@ -34,9 +34,26 @@
   text-decoration: none;
 }
 
-/* Right rail is desktop-only; on small screens the article reads full-width. */
+/* Inline table of contents, shown only on narrow screens where the right rail
+   is hidden — restores the mobile in-page navigation. */
+.mobileToc {
+  display: none;
+}
+
 @media (max-width: 996px) {
   .aside {
     display: none;
+  }
+  .mobileToc {
+    display: block;
+    margin: 0 0 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  }
+  /* The upstream TOC (also carries the global .thin-scrollbar class) is sticky
+     for the desktop rail; neutralize that when rendered inline on mobile. */
+  .mobileToc :global(.thin-scrollbar) {
+    position: static;
+    max-height: none;
   }
 }
